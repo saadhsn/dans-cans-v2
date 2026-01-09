@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-primary: rgb(var(--brand-primary));
+  --color-brand-dark: rgb(var(--brand-dark));
+  --color-brand-accent: rgb(var(--brand-accent));
+}
+
+/* 1. SAFETY (Default - Orange) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-primary: 234 88 12;   /* #ea580c */
+  --brand-dark: 15 23 42;      /* #0f172a */
+  --brand-accent: 253 186 116; /* #fdba74 */
+  --hero-bg: 15 23 42;         /* Dark Navy */
+  --hero-text: 255 255 255;    /* White text */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 2. ECO (Green) */
+[data-theme='eco'] {
+  --brand-primary: 22 163 74;  /* #16a34a */
+  --brand-dark: 6 20 12;
+  --brand-accent: 187 247 208;
+  --hero-bg: 6 20 12;
+  --hero-text: 255 255 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 3. MIDNIGHT (Blue) */
+[data-theme='midnight'] {
+  --brand-primary: 37 99 235;  /* #2563eb */
+  --brand-dark: 8 10 24;
+  --brand-accent: 191 219 254;
+  --hero-bg: 8 10 24;
+  --hero-text: 255 255 255;
+}
+
+/* 4. INDUSTRIAL (Yellow) */
+[data-theme='industrial'] {
+  --brand-primary: 202 138 4;  /* #ca8a04 */
+  --brand-dark: 24 24 27;
+  --brand-accent: 254 240 138;
+  --hero-bg: 24 24 27;
+  --hero-text: 255 255 255;
+}
+
+/* 5. SERVICE (Light - Red) */
+[data-theme='service'] {
+  --brand-primary: 220 38 38;   /* #dc2626 */
+  --brand-dark: 15 23 42;      /* Navy */
+  --brand-accent: 254 226 226; /* Red-100 */
+  --hero-bg: 255 255 255;      /* WHITE BACKGROUND */
+  --hero-text: 15 23 42;       /* DARK TEXT */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply transition-colors duration-500;
+  background-color: rgb(248 250 252);
+  color: rgb(var(--brand-dark));
 }
