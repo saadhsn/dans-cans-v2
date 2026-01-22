@@ -1,8 +1,13 @@
+
+
+
 "use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Heart, Coffee } from 'lucide-react';
+// 1. Import the Next.js Image component
+import Image from 'next/image';
 
 const values = [
   { icon: Award, title: "Pro Service", desc: "15+ years of logistics experience." },
@@ -22,17 +27,26 @@ export default function About() {
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50"
             >
-              {/* Replace the src with your actual team or truck photo later */}
+              {/* We use aspect-[4/5] to define the shape. 
+                Inside, we use the Next.js Image with 'fill' so it expands to that shape.
+              */}
               <div className="aspect-[4/5] bg-slate-200 flex items-center justify-center relative group">
-                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500" />
-                <img 
-                  src="https://images.unsplash.com/photo-1517524206127-48bbd362f39e?q=80&w=2000&auto=format&fit=crop" 
+                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                
+                {/* 2. UPDATED IMAGE LOGIC */}
+                <Image 
+                  src="/about-team.jpeg" 
                   alt="Dans Cans Team"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
-                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white">
+
+                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white z-20">
                   <p className="text-brand-dark font-black italic text-xl">"We treat your driveway like our own."</p>
                   <p className="text-brand-primary font-bold text-sm uppercase mt-1">— Dan, Founder</p>
                 </div>
@@ -48,6 +62,7 @@ export default function About() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className="inline-flex items-center gap-2 text-brand-primary font-black uppercase tracking-widest text-sm mb-6"
             >
               <div className="w-10 h-[2px] bg-brand-primary" />
