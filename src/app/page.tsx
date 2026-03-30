@@ -6,6 +6,7 @@ import ProhibitedItems from "@/components/sections/ProhibitedItems";
 import FAQ from "@/components/sections/FAQ";
 import Testimonials from "@/components/sections/Testimonials";
 import ServiceArea from "@/components/sections/ServiceArea";
+import ProjectGallery from "@/components/sections/ProjectGallery";
 
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
       
       {/* 8. SUPPORT: FAQ */}
       <FAQ />
+
+      {/* 9. GALLERY: Project Photos */}
+      <ProjectGallery />
     </main>
   );
 }

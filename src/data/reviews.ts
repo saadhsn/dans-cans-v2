@@ -9,27 +9,27 @@ export interface Review {
 
 export const REVIEWS: Review[] = [
   {
-    name: "Michael R.",
-    role: "Homeowner",
-    text: "Ordered a 15-yard bin for a garage cleanout. The delivery was exactly where I asked, and they used boards to protect my new driveway. Highly recommend!",
+    name: "Kristo Nako",
+    role: "Customer",
+    text: "Dans Containers was solid all around. They showed up on time, communication was clear and responsive, and the pricing was fair with no surprises. Straightforward, reliable service. Would use them again.",
     rating: 5,
     tag: "Residential",
-    date: "2 days ago"
+    date: "Google Review"
   },
   {
-    name: "Sarah Jenkins",
-    role: "Project Manager",
-    text: "Dans Cans is our go-to for job sites. On-time swaps and clear pricing. No surprise 'overweight' fees like the big national companies.",
+    name: "Nancy Dowling",
+    role: "Customer",
+    text: "Called Dan and he delivered a dumpster within an hour! Placed the dumpster exactly where I asked. His prices are more than reasonable. Dan is a really nice guy, flexible, and honest.",
+    rating: 5,
+    tag: "Residential",
+    date: "Google Review"
+  },
+  {
+    name: "Tony Persaud - Realtor",
+    role: "Realtor",
+    text: "I had a fantastic experience renting a dumpster from Dan's Cans! They were fast, friendly, and incredibly responsive from start to finish. Their pricing was very affordable, and they went out of their way to accommodate my schedule and needs. Delivery and pickup were seamless, and their customer service was top-notch. I highly recommend them to anyone needing a hassle-free dumpster rental. I’ll definitely be using them again in the future!",
     rating: 5,
     tag: "Commercial",
-    date: "1 week ago"
-  },
-  {
-    name: "David L.",
-    role: "DIY Enthusiast",
-    text: "The website made it so easy to pick a size. I wasn't sure what I needed, but the pickup truck comparison was spot on. 10/10 service.",
-    rating: 5,
-    tag: "Home Reno",
-    date: "3 weeks ago"
+    date: "Google Review"
   }
 ];

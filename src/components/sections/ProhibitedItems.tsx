@@ -9,22 +9,55 @@ import {
   Trash2, 
   Zap, 
   Flame, 
-  Container,
-  AlertTriangle 
+  LifeBuoy,
+  AlertTriangle,
+  Fuel,
+  Phone
 } from 'lucide-react';
+import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_TEL } from '@/data/contact';
 
 const prohibited = [
-  { icon: Droplet, name: "Wet Paint", desc: "Liquid paints and lacquers are strictly prohibited." },
-  { icon: Battery, name: "Batteries", desc: "Lead-acid and lithium-ion batteries are hazardous." },
-  { icon: Flame, name: "Propane", desc: "Tanks, cylinders, or any pressurized vessels." },
-  { icon: Zap, name: "Electronics", desc: "TVs, computers, and monitors (E-waste)." },
-  { icon: Container, name: "Tires", desc: "Most landfills do not accept tires in dumpsters." },
-  { icon: Trash2, name: "Hazardous", desc: "Asbestos, pesticides, and medical waste." },
+  { 
+    icon: Droplet, 
+    name: "Wet Paint", 
+    desc: "Liquid paints and lacquers are strictly prohibited.",
+    color: { text: "text-blue-600", bg: "bg-blue-50", hoverBg: "group-hover:bg-blue-100", hoverShadow: "group-hover:shadow-blue-600/10" }
+  },
+  { 
+    icon: Battery, 
+    name: "Batteries", 
+    desc: "Lead-acid and lithium-ion batteries are hazardous.",
+    color: { text: "text-amber-600", bg: "bg-amber-50", hoverBg: "group-hover:bg-amber-100", hoverShadow: "group-hover:shadow-amber-600/10" }
+  },
+  { 
+    icon: Flame, 
+    name: "Propane", 
+    desc: "Tanks, cylinders, or any pressurized vessels.",
+    color: { text: "text-orange-600", bg: "bg-orange-50", hoverBg: "group-hover:bg-orange-100", hoverShadow: "group-hover:shadow-orange-600/10" }
+  },
+  { 
+    icon: Fuel, 
+    name: "Petroleum Products", 
+    desc: "Gasoline, oil, and other petroleum-based liquids.",
+    color: { text: "text-red-600", bg: "bg-red-50", hoverBg: "group-hover:bg-red-100", hoverShadow: "group-hover:shadow-red-600/10" }
+  },
+  { 
+    icon: LifeBuoy, 
+    name: "Tires", 
+    desc: "Most landfills do not accept tires in dumpsters.",
+    color: { text: "text-slate-600", bg: "bg-slate-100", hoverBg: "group-hover:bg-slate-200", hoverShadow: "group-hover:shadow-slate-600/10" }
+  },
+  { 
+    icon: Trash2, 
+    name: "Hazardous", 
+    desc: "Asbestos, pesticides, and medical waste.",
+    color: { text: "text-purple-600", bg: "bg-purple-50", hoverBg: "group-hover:bg-purple-100", hoverShadow: "group-hover:shadow-purple-600/10" }
+  },
 ];
 
 export default function ProhibitedItems() {
   return (
-    <section id="prohibited-items" className="py-24 bg-white transition-colors duration-500">
+    <section id="prohibited-items" className="py-16 md:py-24 bg-white transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -47,12 +80,8 @@ export default function ProhibitedItems() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {prohibited.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05 }}
-              whileHover={{ scale: 1.02 }}
               className="group relative bg-slate-50 border border-slate-100 p-8 rounded-[2rem] overflow-hidden transition-all hover:shadow-xl hover:bg-white"
             >
               {/* "NO" Indicator Overlay */}
@@ -60,7 +89,7 @@ export default function ProhibitedItems() {
                 <XCircle size={32} className="text-red-600" />
               </div>
 
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm text-slate-400 group-hover:text-red-600 group-hover:shadow-red-600/10 transition-all">
+              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-all ${item.color.bg} ${item.color.text} ${item.color.hoverBg} ${item.color.hoverShadow}`}>
                 <item.icon size={28} />
               </div>
 
@@ -70,7 +99,7 @@ export default function ProhibitedItems() {
               <p className="text-slate-500 text-sm leading-relaxed">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -90,10 +119,11 @@ export default function ProhibitedItems() {
             </div>
           </div>
           <a 
-            href="tel:5555555555" 
-            className="bg-white text-brand-dark px-8 py-4 rounded-2xl font-black hover:bg-brand-primary hover:text-white transition-all whitespace-nowrap"
+            href={SUPPORT_PHONE_TEL}
+            className="bg-white text-brand-dark px-8 py-4 rounded-2xl font-black hover:bg-brand-primary hover:text-white transition-all whitespace-nowrap inline-flex items-center gap-2"
           >
-            (555) 000-0000
+            <Phone size={18} />
+            {SUPPORT_PHONE_DISPLAY}
           </a>
         </motion.div>
       </div>

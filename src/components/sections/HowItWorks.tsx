@@ -6,7 +6,7 @@ const steps = [
   {
     icon: CalendarCheck,
     title: "1. Choose Your Size",
-    desc: "Select from our 10, 20, or 30 yard bins based on your project needs."
+    desc: "Select from our 10, 15, or 20 yard bins based on your project needs."
   },
   {
     icon: Truck,
@@ -22,7 +22,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-slate-50 transition-colors duration-500">
+    <section id="how-it-works" className="py-16 md:py-24 bg-slate-50 transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-black text-brand-dark mb-4 uppercase italic tracking-tighter">

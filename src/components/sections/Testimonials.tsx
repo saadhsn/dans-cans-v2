@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, CheckCircle, Quote } from 'lucide-react';
+import { Star, CheckCircle, Quote, ArrowUpRight } from 'lucide-react';
 import { REVIEWS } from '@/data/reviews'; // Fetching from our data store
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-slate-50 transition-colors duration-500">
+    <section id="testimonials" className="py-16 md:py-24 bg-slate-50 transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div 
@@ -26,11 +26,8 @@ export default function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {REVIEWS.map((review, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
               className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 relative group hover:shadow-xl hover:border-brand-primary/20 transition-all flex flex-col justify-between"
             >
               <div>
@@ -46,7 +43,7 @@ export default function Testimonials() {
                 </div>
 
                 <p className="text-slate-600 font-medium mb-8 leading-relaxed italic">
-                  "{review.text}"
+                  &ldquo;{review.text}&rdquo;
                 </p>
               </div>
 
@@ -63,16 +60,26 @@ export default function Testimonials() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Third-Party Trust Badges */}
-        <div className="mt-20 pt-10 border-t border-slate-200 flex flex-wrap justify-center gap-12 items-center opacity-40">
-           <div className="flex items-center gap-2 font-black text-xl italic">Google <span className="text-blue-500">Reviews</span></div>
-           <div className="flex items-center gap-2 font-black text-xl italic">Yelp<span className="text-red-600">.</span></div>
-           <div className="flex items-center gap-2 font-black text-xl italic">Nextdoor</div>
-           <div className="flex items-center gap-2 font-black text-xl italic underline">Angi</div>
+        <div className="mt-20 pt-10 border-t border-slate-200 flex flex-wrap justify-center items-center opacity-60">
+          <a
+            href="https://share.google/W4AQctB4FU5sUERFs"
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-1.5 sm:gap-2 px-1 py-1 cursor-pointer font-black text-lg sm:text-xl italic text-slate-800 border-b-2 border-slate-500 hover:text-slate-950 hover:border-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40 rounded-sm transition-all"
+          >
+            <span>Google</span>
+            <span className="text-blue-700 group-hover:text-blue-800">Reviews</span>
+            <ArrowUpRight
+              size={16}
+              className="ml-0.5 text-blue-700 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-visible:-translate-y-0.5 group-focus-visible:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </a>
         </div>
       </div>
     </section>

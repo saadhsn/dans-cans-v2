@@ -1,0 +1,2 @@
+export const SUPPORT_PHONE_DISPLAY = "(203) 823-5218";
+export const SUPPORT_PHONE_TEL = "tel:2038235218";

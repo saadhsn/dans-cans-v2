@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Truck, ChevronRight, Home, HardHat, Scale, Clock, Ruler, Leaf } from 'lucide-react';
+import { Truck, ChevronRight, Home, HardHat, Scale, Ruler, Leaf } from 'lucide-react';
+import { SUPPORT_PHONE_TEL } from '@/data/contact';
 
 const SIZES = [
   { 
@@ -24,8 +25,8 @@ const SIZES = [
     useCase: 'Perfect for small remodeling & junk removal.',
     loads: '5-6 Truck Loads',
     options: [
-      { days: '3 Day Rental', price: '425', weight: '1.5 Tons Included' },
-      { days: '7 Day Rental', price: '460', weight: '1.5 Tons Included' }
+      { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
+      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
     ]
   },
   { 
@@ -36,8 +37,8 @@ const SIZES = [
     useCase: 'Ideal for larger cleanups & basement cleanouts.',
     loads: '6-7 Truck Loads',
     options: [
-      { days: '3 Day Rental', price: '475', weight: '2 Tons Included' },
-      { days: '7 Day Rental', price: '510', weight: '2 Tons Included' }
+      { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
+      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
     ]
   },
   { 
@@ -48,15 +49,15 @@ const SIZES = [
     useCase: 'Best for large cleanups & full room remodels.',
     loads: '8-10 Truck Loads',
     options: [
-      { days: '3 Day Rental', price: '525', weight: '3 Tons Included' },
-      { days: '7 Day Rental', price: '560', weight: '3 Tons Included' }
+      { days: '3 Day Rental', price: '430', weight: '1 Ton Included' },
+      { days: '7 Day Rental', price: '499', weight: '1 Ton Included' }
     ]
   }
 ];
 
 export default function SizeGrid() {
   return (
-    <section id="sizes" className="py-24 bg-white transition-colors duration-500">
+    <section id="sizes" className="py-16 md:py-24 bg-white transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
@@ -86,8 +87,15 @@ export default function SizeGrid() {
                 <div className="bg-white p-3 rounded-xl shadow-sm text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
                   <bin.icon size={24} />
                 </div>
-                <div className="inline-flex items-center gap-1.5 bg-brand-primary/10 text-brand-primary px-2 py-1 rounded-full text-[9px] font-black uppercase">
-                  <Truck size={10} /> {bin.loads}
+                <div className="flex flex-col items-end gap-2">
+                  <div className="inline-flex items-center gap-1.5 bg-brand-primary/10 text-brand-primary px-2 py-1 rounded-full text-[9px] font-black uppercase">
+                    <Truck size={10} /> {bin.loads}
+                  </div>
+                  {['10yd', '12yd', '15yd'].includes(bin.id) && (
+                    <div className="inline-flex items-center gap-1.5 bg-slate-900 text-white px-2 py-1 rounded-full text-[9px] font-black uppercase">
+                      Flat Rate
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -114,9 +122,12 @@ export default function SizeGrid() {
                 ))}
               </div>
 
-              <button className="w-full bg-brand-dark text-white group-hover:bg-brand-primary py-4 rounded-xl font-black transition-all flex items-center justify-center gap-2 uppercase tracking-tight text-sm active:scale-95 shadow-lg shadow-brand-dark/10 group-hover:shadow-brand-primary/20">
+              <a
+                href={SUPPORT_PHONE_TEL}
+                className="w-full bg-brand-dark text-white group-hover:bg-brand-primary py-4 rounded-xl font-black transition-all flex items-center justify-center gap-2 uppercase tracking-tight text-sm active:scale-95 shadow-lg shadow-brand-dark/10 group-hover:shadow-brand-primary/20"
+              >
                 Rent Now <ChevronRight size={16} />
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>

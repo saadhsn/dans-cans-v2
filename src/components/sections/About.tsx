@@ -1,16 +1,9 @@
-
-
-
-"use client";
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Award, Users, Heart, Coffee } from 'lucide-react';
-// 1. Import the Next.js Image component
 import Image from 'next/image';
 
 const values = [
-  { icon: Award, title: "Pro Service", desc: "15+ years of logistics experience." },
+  { icon: Award, title: "15+ Years of Local Project Experience", desc: "Family-owned with deep roots in the communities we serve." },
   { icon: Users, title: "Locally Owned", desc: "Born and raised in the community." },
   { icon: Heart, title: "Community First", desc: "We support local clean-up events." },
   { icon: Coffee, title: "Personal Touch", desc: "No call centers. Talk to us directly." },
@@ -18,56 +11,43 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white overflow-hidden transition-colors duration-500">
+    <section id="about" className="py-16 md:py-24 bg-white overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Left Side: Image/Visual Block */}
-          <div className="lg:w-1/2 relative">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50"
-            >
-              {/* We use aspect-[4/5] to define the shape. 
-                Inside, we use the Next.js Image with 'fill' so it expands to that shape.
-              */}
+          <div className="order-2 lg:order-1 lg:w-1/2 relative">
+            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
+              {/* We use aspect-[4/5] to define the shape. */}
               <div className="aspect-[4/5] bg-slate-200 flex items-center justify-center relative group">
                 <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                
-                {/* 2. UPDATED IMAGE LOGIC */}
-                <Image 
-                  src="/about-team.jpeg" 
+
+                <Image
+                  src="/about-team.jpeg"
                   alt="Dans Cans Team"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-full w-full object-cover"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   priority
                 />
 
                 <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white z-20">
-                  <p className="text-brand-dark font-black italic text-xl">"We treat your driveway like our own."</p>
+                  <p className="text-brand-dark font-black italic text-xl">&ldquo;We treat your driveway like our own.&rdquo;</p>
                   <p className="text-brand-primary font-bold text-sm uppercase mt-1">— Dan, Founder</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
             
             {/* Background Decorative Element */}
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl -z-0" />
           </div>
 
           {/* Right Side: Content */}
-          <div className="lg:w-1/2">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 text-brand-primary font-black uppercase tracking-widest text-sm mb-6"
-            >
+          <div className="order-1 lg:order-2 lg:w-1/2">
+            <div className="inline-flex items-center gap-2 text-brand-primary font-black uppercase tracking-widest text-sm mb-6">
               <div className="w-10 h-[2px] bg-brand-primary" />
               The Local Difference
-            </motion.div>
+            </div>
             
             <h2 className="text-4xl md:text-6xl font-black text-brand-dark mb-8 leading-tight uppercase italic tracking-tighter">
               BORN IN THE <br />
@@ -75,14 +55,14 @@ export default function About() {
             </h2>
 
             <p className="text-slate-600 text-lg mb-8 leading-relaxed font-medium">
-              Dans Cans wasn't started in a corporate boardroom. It was started in a local driveway. 
+              Dans Cans wasn&apos;t started in a corporate boardroom. It was started in a local driveway. 
               We saw how difficult it was for homeowners to get a straight answer on pricing and 
               reliable delivery times.
             </p>
 
             <p className="text-slate-600 text-lg mb-12 leading-relaxed font-medium">
-              Today, we serve the entire metro area with a simple mission: provide the cleanest, 
-              fastest, and most transparent dumpster rental service in the state.
+              Today, we serve communities across Connecticut with a simple mission: provide the cleanest, 
+              fastest, and most transparent dumpster rental service in CT.
             </p>
 
             {/* Value Grid */}
