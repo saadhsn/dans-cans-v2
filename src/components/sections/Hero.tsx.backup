@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ShieldCheck, Truck, Zap, Trash2, CheckCircle2 } from 'lucide-react';
 import { SERVICEABLE_ZIPS } from '@/data/serviceArea';
-import { ADS_CONVERSIONS, trackAdsConversion, trackCheckPricesClick } from '@/lib/gtag';
 
 export default function Hero() {
   const [zipCode, setZipCode] = useState("");
@@ -13,28 +12,21 @@ export default function Hero() {
 
   const handleCheckPrices = (e: React.FormEvent) => {
     e.preventDefault();
-
     const cleanZip = zipCode.trim();
-
     if (cleanZip.length === 0) {
       setStatus('idle');
       return;
     }
-
     if (cleanZip.length < 5) {
       setStatus('tooShort');
       return;
     }
 
-    trackCheckPricesClick('hero');
-
     if (SERVICEABLE_ZIPS.includes(cleanZip)) {
       setStatus('valid');
-      trackAdsConversion(ADS_CONVERSIONS.dumpsterLead);
-
       const pricingSection = document.getElementById('sizes');
       if (pricingSection) {
-        const offset = 80;
+        const offset = 80; 
         const elementPosition = pricingSection.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
 

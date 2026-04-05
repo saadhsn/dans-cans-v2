@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { Phone, Truck, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_TEL } from '@/data/contact';
-import { ADS_CONVERSIONS, trackAdsConversion, trackCallClick } from '@/lib/gtag';
 
 type LogoVariant = 'between' | 'right' | 'above' | 'below' | 'below-row' | 'replace' | 'none';
 const LOGO_VARIANT: LogoVariant = 'right';
@@ -203,10 +202,6 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a 
             href={SUPPORT_PHONE_TEL}
-            onClick={() => {
-              trackCallClick('navbar_desktop');
-              trackAdsConversion(ADS_CONVERSIONS.dumpsterLead);
-            }}
             className={`hidden lg:flex items-center gap-2 font-black transition-colors hover:text-brand-primary ${
               isScrolled ? "text-brand-dark" : "text-white"
             }`}
@@ -235,14 +230,7 @@ export default function Navbar() {
            <a onClick={(e) => scrollToSection(e, 'how-it-works')} href="#how-it-works" className="text-xl font-black text-brand-dark uppercase tracking-tight">How It Works</a>
            <a onClick={(e) => scrollToSection(e, 'faq')} href="#faq" className="text-xl font-black text-brand-dark uppercase tracking-tight">FAQ</a>
            <div className="h-px bg-slate-100 w-full" />
-           <a
-             href={SUPPORT_PHONE_TEL}
-             onClick={() => {
-               trackCallClick('navbar_mobile');
-               trackAdsConversion(ADS_CONVERSIONS.dumpsterLead);
-             }}
-             className="flex items-center gap-3 text-brand-primary font-black text-2xl"
-           >
+           <a href={SUPPORT_PHONE_TEL} className="flex items-center gap-3 text-brand-primary font-black text-2xl">
             <Phone size={24} fill="currentColor" />
             {SUPPORT_PHONE_DISPLAY}
            </a>

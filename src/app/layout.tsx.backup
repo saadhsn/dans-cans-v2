@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -88,25 +87,15 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased bg-slate-50 text-slate-900`}
       >
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16926603223"
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads-tag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-16926603223');
-          `}
-        </Script>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
+        {/* The Navbar stays at the top of every page */}
         <Navbar />
+
+        {/* This is where the content of your page.tsx will be injected */}
         {children}
 
         <footer className="bg-brand-dark py-12 text-white/50 text-center text-sm border-t border-white/5">

@@ -3,7 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Truck, ChevronRight, Home, HardHat, Scale, Ruler, Leaf, CalendarDays } from 'lucide-react';
 import { SUPPORT_PHONE_TEL } from '@/data/contact';
-import { ADS_CONVERSIONS, trackAdsConversion, trackRentNowClick } from '@/lib/gtag';
 
 const SIZES = [
   { 
@@ -126,14 +125,6 @@ export default function SizeGrid() {
 
               <a
                 href={SUPPORT_PHONE_TEL}
-                onClick={() => {
-                  trackRentNowClick({
-                    binId: bin.id,
-                    binName: bin.name,
-                    ctaLocation: 'size_grid',
-                  });
-                  trackAdsConversion(ADS_CONVERSIONS.dumpsterLead);
-                }}
                 className="w-full bg-brand-dark text-white group-hover:bg-brand-primary py-4 rounded-xl font-black transition-all flex items-center justify-center gap-2 uppercase tracking-tight text-sm active:scale-95 shadow-lg shadow-brand-dark/10 group-hover:shadow-brand-primary/20"
               >
                 Rent Now <ChevronRight size={16} />
