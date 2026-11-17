@@ -32,13 +32,31 @@ export default function ProjectGallery() {
               key={`${photo.src}-${idx}`}
               className="masonry-item overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 shadow-sm hover:shadow-xl hover:border-brand-primary/20 transition-all"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-                className="w-full h-auto block"
-              />
+              {photo.type === "video" ? (
+                <div className="aspect-[4/5] bg-slate-100">
+                  <video
+                    aria-label={photo.alt}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                    className="h-full w-full object-cover block"
+                  >
+                    <source src={photo.src} type="video/mp4" />
+                  </video>
+                </div>
+              ) : (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="w-full h-auto block"
+                  />
+                </>
+              )}
             </div>
           ))}
         </div>

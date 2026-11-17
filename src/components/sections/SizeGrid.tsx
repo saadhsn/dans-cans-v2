@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Truck, ChevronRight, Home, HardHat, Scale, Ruler, Leaf, CalendarDays } from 'lucide-react';
+import { ChevronRight, Scale, Ruler, Leaf, CalendarDays } from 'lucide-react';
 import { SUPPORT_PHONE_TEL } from '@/data/contact';
 import { ADS_CONVERSIONS, trackAdsConversion, trackRentNowClick } from '@/lib/gtag';
 
@@ -9,44 +10,36 @@ const SIZES = [
   { 
     id: '10yd', 
     name: '10 Yard Bin', 
-    icon: Home, 
     dimensions: '10ft L x 8ft W x 4ft H',
-    loads: '4-5 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
     id: '12yd', 
     name: '12 Yard Bin', 
-    icon: Home, 
     dimensions: '12ft L x 8ft W x 4ft H',
-    loads: '5-6 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
     id: '15yd', 
     name: '15 Yard Bin', 
-    icon: HardHat, 
     dimensions: '12ft L x 8ft W x 4.5-5ft H',
-    loads: '6-7 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
     id: '20yd', 
     name: '20 Yard Bin', 
-    icon: HardHat, 
     dimensions: '12ft L x 8ft W x 5.5-6ft H',
-    loads: '8-10 Truck Loads',
     options: [
-      { days: '3 Day Rental', price: '430', weight: '1 Ton Included' },
+      { days: '3 Day Rental', price: '439', weight: '1 Ton Included' },
       { days: '7 Day Rental', price: '499', weight: '1 Ton Included' }
     ]
   }
@@ -76,7 +69,7 @@ export default function SizeGrid() {
               <CalendarDays className="text-brand-primary" size={24} />
               <p className="text-xs font-bold text-brand-dark leading-tight">
                 EXTRA DAY POLICY:<br />
-                <span className="text-brand-primary font-black">$15 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
+                <span className="text-brand-primary font-black">$20 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
               </p>
             </div>
           </div>
@@ -90,18 +83,15 @@ export default function SizeGrid() {
               className="bg-slate-50 rounded-[2.5rem] p-6 border border-slate-200 group hover:border-brand-primary transition-all shadow-sm hover:shadow-xl hover:shadow-brand-primary/10 flex flex-col"
             >
               <div className="flex justify-between items-start mb-6">
-                <div className="bg-white p-3 rounded-xl shadow-sm text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
-                  <bin.icon size={24} />
-                </div>
-                <div className="flex flex-col items-end gap-2">
-                  <div className="inline-flex items-center gap-1.5 bg-brand-primary/10 text-brand-primary px-2 py-1 rounded-full text-[9px] font-black uppercase">
-                    <Truck size={10} /> {bin.loads}
-                  </div>
-                  {['10yd', '12yd', '15yd'].includes(bin.id) && (
-                    <div className="inline-flex items-center gap-1.5 bg-slate-900 text-white px-2 py-1 rounded-full text-[9px] font-black uppercase">
-                      Flat Rate
-                    </div>
-                  )}
+                <div className="transition-transform group-hover:scale-105">
+                  <Image
+                    src="/dumpster-icon.svg"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 object-contain"
+                    aria-hidden="true"
+                  />
                 </div>
               </div>
 

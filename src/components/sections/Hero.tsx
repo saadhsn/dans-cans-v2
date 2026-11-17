@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ShieldCheck, Truck, Zap, Trash2, CheckCircle2 } from 'lucide-react';
@@ -9,7 +9,19 @@ import { ADS_CONVERSIONS, trackAdsConversion, trackCheckPricesClick } from '@/li
 
 export default function Hero() {
   const [zipCode, setZipCode] = useState("");
+  const [confirmedZip, setConfirmedZip] = useState("");
+  const [showServiceToast, setShowServiceToast] = useState(false);
   const [status, setStatus] = useState<'idle' | 'valid' | 'invalid' | 'tooShort'>('idle');
+
+  useEffect(() => {
+    if (!showServiceToast) return;
+
+    const timeoutId = window.setTimeout(() => {
+      setShowServiceToast(false);
+    }, 3000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showServiceToast, confirmedZip]);
 
   const handleCheckPrices = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,11 +30,13 @@ export default function Hero() {
 
     if (cleanZip.length === 0) {
       setStatus('idle');
+      setShowServiceToast(false);
       return;
     }
 
     if (cleanZip.length < 5) {
       setStatus('tooShort');
+      setShowServiceToast(false);
       return;
     }
 
@@ -30,6 +44,8 @@ export default function Hero() {
 
     if (SERVICEABLE_ZIPS.includes(cleanZip)) {
       setStatus('valid');
+      setConfirmedZip(cleanZip);
+      setShowServiceToast(true);
       trackAdsConversion(ADS_CONVERSIONS.dumpsterLead);
 
       const pricingSection = document.getElementById('sizes');
@@ -45,11 +61,26 @@ export default function Hero() {
       }
     } else {
       setStatus('invalid');
+      setShowServiceToast(false);
     }
   };
 
   return (
     <section className="relative min-h-[90vh] bg-[#0B1221] text-white flex items-center pt-20 overflow-hidden">
+      {showServiceToast && (
+        <motion.div
+          role="status"
+          aria-live="polite"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="pointer-events-none fixed bottom-6 left-1/2 z-[120] flex w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 items-center gap-3 rounded-xl border border-green-400/40 bg-brand-dark/95 px-4 py-3 text-white shadow-2xl shadow-brand-dark/20 backdrop-blur-md"
+        >
+          <CheckCircle2 size={20} className="shrink-0 text-green-400" />
+          <p className="text-sm font-black leading-tight">
+            Good news, we serve {confirmedZip}. Showing dumpster prices.
+          </p>
+        </motion.div>
+      )}
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
@@ -94,6 +125,7 @@ export default function Hero() {
                   onChange={(e) => {
                     const nextZip = e.target.value.replace(/\D/g, '');
                     setZipCode(nextZip);
+                    setShowServiceToast(false);
                     if (nextZip.length === 0) {
                       setStatus('idle');
                     } else if (nextZip.length < 5) {

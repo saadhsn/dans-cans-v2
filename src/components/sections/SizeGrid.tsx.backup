@@ -13,7 +13,7 @@ const SIZES = [
     loads: '4-5 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
@@ -24,7 +24,7 @@ const SIZES = [
     loads: '5-6 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
@@ -35,7 +35,7 @@ const SIZES = [
     loads: '6-7 Truck Loads',
     options: [
       { days: '3 Day Rental', price: '399', weight: '1 Ton Included' },
-      { days: '7 Day Rental', price: '430', weight: '1 Ton Included' }
+      { days: '7 Day Rental', price: '439', weight: '1 Ton Included' }
     ]
   },
   { 
@@ -45,7 +45,7 @@ const SIZES = [
     dimensions: '12ft L x 8ft W x 5.5-6ft H',
     loads: '8-10 Truck Loads',
     options: [
-      { days: '3 Day Rental', price: '430', weight: '1 Ton Included' },
+      { days: '3 Day Rental', price: '439', weight: '1 Ton Included' },
       { days: '7 Day Rental', price: '499', weight: '1 Ton Included' }
     ]
   }

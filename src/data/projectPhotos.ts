@@ -1,6 +1,7 @@
 export interface ProjectPhoto {
   src: string;
   alt: string;
+  type?: "image" | "video";
 }
 
 // Add your project photos in public/projects and list them here.
@@ -10,8 +11,11 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
   { src: "/projects/03.jpg", alt: "Roll-off dumpster placed safely on a driveway in a CT neighborhood" },
   { src: "/projects/04.jpg", alt: "Connecticut construction cleanup with Dans Cans dumpster service" },
   { src: "/projects/05.jpg", alt: "Home renovation debris removal with a local CT dumpster rental" },
+  { src: "/projects/video_01.mp4", alt: "Dans Cans dumpster in action on a Connecticut cleanup project", type: "video" },
   { src: "/projects/06.jpg", alt: "Family-owned dumpster rental service supporting a Connecticut jobsite" },
   { src: "/projects/07.jpg", alt: "On-time dumpster drop-off for a residential cleanup in Connecticut" },
   { src: "/projects/08.jpg", alt: "Driveway-safe roll-off dumpster rental for a CT remodeling project" },
   { src: "/projects/09.jpg", alt: "Dans Cans dumpster pickup after a completed Connecticut cleanup job" },
+  { src: "/projects/10.jpeg", alt: "Dans Cans dumpster rental supporting a Connecticut cleanup or renovation project" },
+  { src: "/projects/11.jpeg", alt: "Roll-off dumpster in use for a local Connecticut residential or contractor job" },
 ];
