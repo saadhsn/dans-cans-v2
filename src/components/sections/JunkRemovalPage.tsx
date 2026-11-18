@@ -96,7 +96,7 @@ export default function JunkRemovalPage() {
               JUNK REMOVAL <br /><span className="text-brand-primary">WITHOUT THE HASSLE.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-slate-300 md:text-xl">
-              Clearing out a space? Don't want to handle everything yourself? Dans Cans now offers junk removal assistance alongside our dumpster rental service. Tell us about your project and we'll help you find the right option.
+              Clearing out a space? Don&apos;t want to handle everything yourself? Dans Cans now offers junk removal assistance alongside our dumpster rental service. Tell us about your project and we&apos;ll help you find the right option.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <PhoneCTA location="junk_removal_hero" label={`Call for a Quote: ${SUPPORT_PHONE_DISPLAY}`} />
