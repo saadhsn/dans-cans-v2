@@ -110,7 +110,7 @@ export default function FAQ() {
         <div className="flex flex-col lg:flex-row gap-16">
           
           {/* Left Side: Header */}
-          <div className="lg:w-1/3">
+          <div data-reveal className="lg:w-1/3">
             <div className="sticky top-32">
               <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-6">
                 <HelpCircle size={16} />
@@ -130,7 +130,7 @@ export default function FAQ() {
           </div>
 
           {/* Right Side: Accordion */}
-          <div className="lg:w-2/3 border-t border-slate-200">
+          <div data-reveal className="lg:w-2/3 border-t border-slate-200">
             {faqs.map((faq, idx) => (
               <FAQItem
                 key={idx}
