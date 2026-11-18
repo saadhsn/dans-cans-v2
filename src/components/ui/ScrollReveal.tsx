@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Adds understated scroll-reveal effects without changing the page structure.
  * Content stays visible without JavaScript and for reduced-motion users.
  */
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -36,7 +39,7 @@ export default function ScrollReveal() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }
