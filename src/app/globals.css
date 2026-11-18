@@ -65,3 +65,25 @@ body {
   break-inside: avoid;
   margin-bottom: 1.5rem;
 }
+
+
+/* Subtle premium scroll reveals: progressive enhancement only. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal].reveal-pending {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition: opacity 600ms ease, transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal].reveal-pending.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  [data-reveal-group] > [data-reveal]:nth-child(2) { --reveal-delay: 75ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(3) { --reveal-delay: 150ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(4) { --reveal-delay: 225ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(5) { --reveal-delay: 300ms; }
+  [data-reveal-group] > [data-reveal]:nth-child(6) { --reveal-delay: 375ms; }
+}
