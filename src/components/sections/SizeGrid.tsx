@@ -75,9 +75,10 @@ export default function SizeGrid() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SIZES.map((bin) => (
             <motion.div
+              data-reveal
               key={bin.id}
               whileHover={{ y: -10 }}
               className="bg-white rounded-[2.5rem] p-6 border border-slate-200 group hover:border-brand-primary transition-all shadow-sm hover:shadow-xl hover:shadow-brand-primary/10 flex flex-col"
