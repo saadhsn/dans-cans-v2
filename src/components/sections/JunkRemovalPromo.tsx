@@ -27,7 +27,7 @@ export default function JunkRemovalPromo() {
                 id="junk-removal-promo-title"
                 className="mb-6 text-4xl font-black uppercase italic leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl"
               >
-                DON'T WANT TO <span className="text-brand-primary">LOAD IT YOURSELF?</span>
+                DON&apos;T WANT TO <span className="text-brand-primary">LOAD IT YOURSELF?</span>
               </h2>
               <p className="mb-8 max-w-xl text-base font-medium leading-relaxed text-slate-300 sm:text-lg">
                 We still deliver dumpsters when you want to handle the loading. Need an extra hand with the cleanup instead? Ask us about our new junk removal service.
@@ -56,7 +56,7 @@ export default function JunkRemovalPromo() {
                 <h3 className="flex items-center gap-2 text-xl font-black uppercase italic">
                   Junk Removal <CheckCircle2 size={19} className="text-brand-accent" />
                 </h3>
-                <p className="mt-2 text-sm font-medium text-slate-300">Tell us what needs to go. We'll discuss the help you need.</p>
+                <p className="mt-2 text-sm font-medium text-slate-300">Tell us what needs to go. We&apos;ll discuss the help you need.</p>
               </div>
             </div>
           </div>
