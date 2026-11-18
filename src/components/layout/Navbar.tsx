@@ -245,9 +245,9 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
         <div id="mobile-nav-menu" className="absolute top-full left-0 w-full bg-white border-t border-slate-100 p-6 flex flex-col gap-6 md:hidden shadow-2xl animate-in slide-in-from-top duration-300">
-           <a onClick={(e) => scrollToSection(e, 'sizes')} href="/#sizes" className="text-xl font-black text-brand-dark uppercase tracking-tight">Dumpster Sizes</a>
-           <a onClick={(e) => scrollToSection(e, 'how-it-works')} href="/#how-it-works" className="text-xl font-black text-brand-dark uppercase tracking-tight">How It Works</a>
-           <a onClick={(e) => scrollToSection(e, 'faq')} href="/#faq" className="text-xl font-black text-brand-dark uppercase tracking-tight">FAQ</a>
+           <Link onClick={(e) => scrollToSection(e, 'sizes')} href="/#sizes" className="text-xl font-black text-brand-dark uppercase tracking-tight">Dumpster Sizes</Link>
+           <Link onClick={(e) => scrollToSection(e, 'how-it-works')} href="/#how-it-works" className="text-xl font-black text-brand-dark uppercase tracking-tight">How It Works</Link>
+           <Link onClick={(e) => scrollToSection(e, 'faq')} href="/#faq" className="text-xl font-black text-brand-dark uppercase tracking-tight">FAQ</Link>
            <Link href="/junk-removal/" onClick={() => setMobileMenuOpen(false)} aria-current={pathname.startsWith("/junk-removal") ? "page" : undefined} className="text-xl font-black text-brand-primary uppercase tracking-tight">Junk Removal</Link>
            <div className="h-px bg-slate-100 w-full" />
            <a
