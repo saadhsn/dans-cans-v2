@@ -47,7 +47,7 @@ const SIZES = [
 
 export default function SizeGrid() {
   return (
-    <section id="sizes" className="py-16 md:py-24 bg-white transition-colors duration-500">
+    <section id="sizes" className="py-16 md:py-24 bg-slate-50 transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
@@ -69,7 +69,7 @@ export default function SizeGrid() {
               <CalendarDays className="text-brand-primary" size={24} />
               <p className="text-xs font-bold text-brand-dark leading-tight">
                 EXTRA DAY POLICY:<br />
-                <span className="text-brand-primary font-black">$20 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
+                <span className="text-brand-primary font-black">$35 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function SizeGrid() {
             <motion.div
               key={bin.id}
               whileHover={{ y: -10 }}
-              className="bg-slate-50 rounded-[2.5rem] p-6 border border-slate-200 group hover:border-brand-primary transition-all shadow-sm hover:shadow-xl hover:shadow-brand-primary/10 flex flex-col"
+              className="bg-white rounded-[2.5rem] p-6 border border-slate-200 group hover:border-brand-primary transition-all shadow-sm hover:shadow-xl hover:shadow-brand-primary/10 flex flex-col"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="transition-transform group-hover:scale-105">
@@ -104,7 +104,7 @@ export default function SizeGrid() {
 
               <div className="grid grid-cols-1 gap-3 mb-6 mt-auto">
                 {bin.options.map((opt, idx) => (
-                  <div key={idx} className="bg-white p-3 rounded-xl border border-slate-100 flex items-center justify-between group-hover:border-brand-primary/30 transition-colors">
+                  <div key={idx} className="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-between group-hover:border-brand-primary/30 transition-colors">
                     <div>
                       <p className="text-[11px] font-black text-brand-dark uppercase tracking-tight">{opt.days}</p>
                       <p className="text-[9px] font-bold text-slate-400 uppercase">{opt.weight}</p>
@@ -137,7 +137,8 @@ export default function SizeGrid() {
             <Leaf size={24} className="fill-green-600/20" />
             <div>
               <p className="font-black text-sm uppercase tracking-tight">Organic Landscape Dumpsters</p>
-              <p className="text-[11px] font-bold opacity-80">Rates may be lower for clean organic waste—ask us for details!</p>
+              <p className="text-base font-black tracking-tight">Starting at $375</p>
+              <p className="text-[11px] font-bold opacity-80">Clean organic waste only. Standard rental policies apply; call for details.</p>
             </div>
           </div>
           
