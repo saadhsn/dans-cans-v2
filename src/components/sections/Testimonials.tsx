@@ -24,9 +24,10 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div data-reveal-group className="grid md:grid-cols-3 gap-8">
           {REVIEWS.map((review, idx) => (
             <div
+              data-reveal
               key={idx}
               className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 relative group hover:shadow-xl hover:border-brand-primary/20 transition-all flex flex-col justify-between"
             >
