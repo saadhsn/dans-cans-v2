@@ -31,9 +31,9 @@ export default function HowItWorks() {
           <div className="h-1.5 w-20 bg-brand-primary mx-auto rounded-full mb-6" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div data-reveal-group className="grid md:grid-cols-3 gap-12">
           {steps.map((step, idx) => (
-            <div key={idx} className="group p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-primary/20 transition-all duration-300">
+            <div data-reveal key={idx} className="group p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-primary/20 transition-all duration-300">
               <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary group-hover:rotate-6 transition-all">
                 <step.icon size={32} className="text-brand-primary group-hover:text-white" />
               </div>
