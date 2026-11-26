@@ -5,7 +5,6 @@ import "./globals.css";
 
 // Component Imports
 import Navbar from "@/components/layout/Navbar";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import { SUPPORT_PHONE_DISPLAY } from "@/data/contact";
 import { SERVICED_TOWNS } from "@/data/serviceArea";
 
@@ -108,7 +107,6 @@ export default function RootLayout({
         />
 
         <Navbar />
-        <ScrollReveal />
         {children}
 
         <footer className="bg-brand-dark py-12 text-white/50 text-center text-sm border-t border-white/5">
