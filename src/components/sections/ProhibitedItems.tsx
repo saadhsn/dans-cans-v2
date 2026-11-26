@@ -78,10 +78,9 @@ export default function ProhibitedItems() {
           </p>
         </div>
 
-        <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {prohibited.map((item, idx) => (
             <div
-              data-reveal
               key={idx}
               className="group relative bg-slate-50 border border-slate-100 p-8 rounded-[2rem] overflow-hidden transition-all hover:shadow-xl hover:bg-white"
             >
