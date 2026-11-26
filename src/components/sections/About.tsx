@@ -16,7 +16,7 @@ export default function About() {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Left Side: Image/Visual Block */}
-          <div data-reveal className="order-2 lg:order-1 lg:w-1/2 relative">
+          <div className="order-2 lg:order-1 lg:w-1/2 relative">
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
               {/* We use aspect-[4/5] to define the shape. */}
               <div className="aspect-[4/5] bg-slate-200 flex items-center justify-center relative group">
@@ -43,7 +43,7 @@ export default function About() {
           </div>
 
           {/* Right Side: Content */}
-          <div data-reveal className="order-1 lg:order-2 lg:w-1/2">
+          <div className="order-1 lg:order-2 lg:w-1/2">
             <div className="inline-flex items-center gap-2 text-brand-primary font-black uppercase tracking-widest text-sm mb-6">
               <div className="w-10 h-[2px] bg-brand-primary" />
               The Local Difference
