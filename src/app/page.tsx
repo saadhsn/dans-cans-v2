@@ -7,6 +7,7 @@ import FAQ from "@/components/sections/FAQ";
 import Testimonials from "@/components/sections/Testimonials";
 import ServiceArea from "@/components/sections/ServiceArea";
 import ProjectGallery from "@/components/sections/ProjectGallery";
+import JunkRemovalPromo from "@/components/sections/JunkRemovalPromo";
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
       
       {/* 2. PROCESS: How It Works */}
       <HowItWorks />
+
+      {/* New service: junk removal */}
+      <JunkRemovalPromo />
 
       {/* 3. TRUST: The Local Story */}
       <About />

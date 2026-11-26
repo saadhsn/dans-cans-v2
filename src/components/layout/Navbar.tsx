@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, Truck, Menu, X } from 'lucide-react';
+import { Phone, Truck, Menu, X, HandHelping } from 'lucide-react';
 import Image from 'next/image';
 import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_TEL } from '@/data/contact';
 import { ADS_CONVERSIONS, trackAdsConversion, trackCallClick } from '@/lib/gtag';
@@ -27,8 +27,12 @@ export default function Navbar() {
 
   // Helper function for smooth scrolling
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
-    e.preventDefault();
+    if (pathname !== '/') {
+      setMobileMenuOpen(false);
+      return;
+    }
     const element = document.getElementById(id);
+    if (element) e.preventDefault();
     if (element) {
       const offset = 80; // Offsets the height of the fixed navbar
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -181,13 +185,13 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-8">
           {['Sizes', 'How it Works', 'FAQ'].map((item) => {
             const id = item.toLowerCase().replace(/\s+/g, '-');
             return (
               <a 
                 key={item} 
-                href={`#${id}`}
+                href={`/#${id}`}
                 onClick={(e) => scrollToSection(e, id)}
                 className={`text-sm font-bold uppercase tracking-widest hover:text-brand-primary transition-colors cursor-pointer ${
                   isScrolled ? "text-slate-600" : "text-white/80"
@@ -197,6 +201,17 @@ export default function Navbar() {
               </a>
             );
           })}
+          <Link
+            href="/junk-removal/"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-current={pathname.startsWith("/junk-removal") ? "page" : undefined}
+            className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors hover:text-brand-primary ${
+              pathname.startsWith("/junk-removal") ? "text-brand-primary" : isScrolled ? "text-slate-600" : "text-white/80"
+            }`}
+          >
+            <HandHelping size={16} aria-hidden="true" />
+            Junk Removal
+          </Link>
         </div>
 
         {/* CTA Actions */}
@@ -217,7 +232,7 @@ export default function Navbar() {
           
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-brand-primary"
+            className="xl:hidden text-brand-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
@@ -230,10 +245,11 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-nav-menu" className="absolute top-full left-0 w-full bg-white border-t border-slate-100 p-6 flex flex-col gap-6 md:hidden shadow-2xl animate-in slide-in-from-top duration-300">
-           <a onClick={(e) => scrollToSection(e, 'sizes')} href="#sizes" className="text-xl font-black text-brand-dark uppercase tracking-tight">Dumpster Sizes</a>
-           <a onClick={(e) => scrollToSection(e, 'how-it-works')} href="#how-it-works" className="text-xl font-black text-brand-dark uppercase tracking-tight">How It Works</a>
-           <a onClick={(e) => scrollToSection(e, 'faq')} href="#faq" className="text-xl font-black text-brand-dark uppercase tracking-tight">FAQ</a>
+        <div id="mobile-nav-menu" className="absolute top-full left-0 w-full bg-white border-t border-slate-100 p-6 flex flex-col gap-6 xl:hidden shadow-2xl animate-in slide-in-from-top duration-300">
+           <Link onClick={(e) => scrollToSection(e, 'sizes')} href="/#sizes" className="text-xl font-black text-brand-dark uppercase tracking-tight">Dumpster Sizes</Link>
+           <Link onClick={(e) => scrollToSection(e, 'how-it-works')} href="/#how-it-works" className="text-xl font-black text-brand-dark uppercase tracking-tight">How It Works</Link>
+           <Link onClick={(e) => scrollToSection(e, 'faq')} href="/#faq" className="text-xl font-black text-brand-dark uppercase tracking-tight">FAQ</Link>
+           <Link href="/junk-removal/" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center gap-2 text-xl font-black text-brand-primary uppercase tracking-tight"><HandHelping size={20} aria-hidden="true" /> Junk Removal</Link>
            <div className="h-px bg-slate-100 w-full" />
            <a
              href={SUPPORT_PHONE_TEL}

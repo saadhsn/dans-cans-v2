@@ -69,7 +69,7 @@ export default function SizeGrid() {
               <CalendarDays className="text-brand-primary" size={24} />
               <p className="text-xs font-bold text-brand-dark leading-tight">
                 EXTRA DAY POLICY:<br />
-                <span className="text-brand-primary font-black">$20 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
+                <span className="text-brand-primary font-black">$35 PER DAY</span> AFTER INCLUDED RENTAL PERIOD
               </p>
             </div>
           </div>
@@ -137,7 +137,8 @@ export default function SizeGrid() {
             <Leaf size={24} className="fill-green-600/20" />
             <div>
               <p className="font-black text-sm uppercase tracking-tight">Organic Landscape Dumpsters</p>
-              <p className="text-[11px] font-bold opacity-80">Rates may be lower for clean organic waste—ask us for details!</p>
+              <p className="text-base font-black tracking-tight">Starting at $375</p>
+              <p className="text-[11px] font-bold opacity-80">Clean organic waste only. Standard rental policies apply; call for details.</p>
             </div>
           </div>
           
