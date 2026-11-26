@@ -29,7 +29,6 @@ export default function ProjectGallery() {
         <div className="masonry columns-1 sm:columns-2 lg:columns-3">
           {PROJECT_PHOTOS.map((photo, idx) => (
             <div
-              data-reveal
               key={`${photo.src}-${idx}`}
               className="masonry-item overflow-hidden rounded-3xl border border-slate-100 bg-slate-50 shadow-sm hover:shadow-xl hover:border-brand-primary/20 transition-all"
             >
